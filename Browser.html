@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="Assignment7.css">
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <div class = "sidenav">
+        <div class="dropdown">
+            <button id="button" onclick="myFunc()">Home</button>
+            <script>
+                function myFunc(){
+                    open("Assignment7.html")
+                }
+            </script>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Course
+              <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+              <a href="https://app.tophat.com/e/776977/lecture">TopHat</a>
+              <a href="https://drive.google.com/drive/u/0/folders/1Ak_kUW07RMNZgiEnxxbbLKjSg__lKE6j">Google Drive</a>
+              <a href="https://gaia.cs.umass.edu/kurose_ross/authors.php">Kurose and Ross</a>
+              <a href="http://w3schools.com">W3Schools</a>
+              <a href="https://www.geeksforgeeks.org/">GeeksforGeeks</a>
+          </div>
+      </div>
+        <div class="dropdown">
+          <button id="button2" onclick="myFunc2()">Browser</button>
+            <script>
+                function myFunc2(){
+                    open("Browser.html")
+                }
+            </script>
+
+      </div>
+        <div class="dropdown">
+          <button class="dropbtn">About
+              <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+              <a href="DeveloperDetails.html">Developer Details</a>
+              <a href="ContactMe.html">Contact Me</a>
+          </div>
+      </div>
+      <input type="text" placeholder="Search..">
+    </div>
+</head>
+<body>
+    <h1>Navigator Information:</h1>
+    <p id="navigatorInfo"></p>
+
+    <h1>Window Information:</h1>
+    <p id="windowInfo"></p>
+
+    <h1>Screen Information:</h1>
+    <p id="screenInfo"></p>
+
+    <h1>Location Information:</h1>
+    <p id="locationInfo"></p>
+
+    <h1>Geolocation Information:</h1>
+    <p id="geolocationInfo"></p>
+
+    <script>
+        // Get Navigator Information
+        const navigatorInfo = `
+            appName: ${navigator.appName}<br>
+            product: ${navigator.product}<br>
+            appVersion: ${navigator.appVersion}<br>
+            userAgent: ${navigator.userAgent}<br>
+            platform: ${navigator.platform}<br>
+            language: ${navigator.language}<br>
+        `;
+        document.getElementById('navigatorInfo').innerHTML = navigatorInfo;
+
+        // Get Window Information
+        const windowInfo = `
+            innerHeight: ${window.innerHeight}<br>
+            innerWidth: ${window.innerWidth}<br>
+        `;
+        document.getElementById('windowInfo').innerHTML = windowInfo;
+
+        // Get Screen Information
+        const screenInfo = `
+            width: ${screen.width}<br>
+            height: ${screen.height}<br>
+            availWidth: ${screen.availWidth}<br>
+            availHeight: ${screen.availHeight}<br>
+            colorDepth: ${screen.colorDepth}<br>
+            pixelDepth: ${screen.pixelDepth}<br>
+        `;
+        document.getElementById('screenInfo').innerHTML = screenInfo;
+
+        // Get Location Information
+        const locationInfo = `
+            href: ${location.href}<br>
+            hostname: ${location.hostname}<br>
+            pathname: ${location.pathname}<br>
+            protocol: ${location.protocol}<br>
+        `;
+        document.getElementById('locationInfo').innerHTML = locationInfo;
+
+        // Check for Geolocation support and get Geolocation Information
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const geolocationInfo = `
+                        Latitude: ${position.coords.latitude}<br>
+                        Longitude: ${position.coords.longitude}<br>
+                    `;
+                    document.getElementById('geolocationInfo').innerHTML = geolocationInfo;
+                },
+                (error) => {
+                    document.getElementById('geolocationInfo').innerHTML = "Geolocation information unavailable.";
+                }
+            );
+        } else {
+            document.getElementById('geolocationInfo').innerHTML = "Geolocation not supported.";
+        }
+    </script>
+</body>
+</html>
