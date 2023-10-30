@@ -1,7 +1,7 @@
 # Basic_Webpage
-**Basic Webpage: HTML, CSS, JavaScript, and Python Integration**
+**Basic Webpage: HTML, CSS, and JavaScript Integration**
 
-Welcome to the Basic Webpage repository! This project showcases a simple yet dynamic web application developed using HTML, CSS, JavaScript, and Python. This combination of technologies provides a seamless user experience and demonstrates the integration of frontend and backend technologies.
+Welcome to the Basic Webpage repository! This project showcases a simple yet dynamic web application developed using HTML, CSS, and JavaScript. This combination of technologies provides a seamless user experience and demonstrates the integration of frontend and backend technologies.
 
 ### Project Structure
 
