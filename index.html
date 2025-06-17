@@ -81,6 +81,23 @@
       font-size: 0.8rem;
       color: #bbb;
     }
+  #dialogue-box {
+      background: #222;
+      padding: 1.5rem;
+      border: 4px double #ff6ec4;
+      font-size: 0.75rem;
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+    #dialogue-options li {
+      list-style: none;
+      margin: 0.5rem 0;
+      cursor: pointer;
+      color: #ff6ec4;
+    }
+    #dialogue-options li:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body class="rpg">
@@ -95,7 +112,18 @@
       <p id="tutorial">🧭 <strong>Tutorial Start:</strong> In this adventure, you’ll unlock your past experiences, stats, quests, and companion traits. Ready to begin?</p>
     </section>
 
-    <section class="status-screen">
+<section class="section" id="dialogue-box">
+  <img src="https://dummyimage.com/80x80/fff/aaa.png&text=K" alt="Kayla avatar" style="float:left; margin-right:1rem;">
+  <p id="dialogue-text">Hi! I'm Kayla. Where would you like to go?</p>
+  <ul id="dialogue-options">
+    <li onclick="navigateRPG('skills')">View Abilities</li>
+    <li onclick="navigateRPG('quests')">View Quests</li>
+    <li onclick="navigateRPG('companion')">Meet Companion</li>
+    <li onclick="navigateRPG('contact-line')">Contact Me</li>
+  </ul>
+</section>
+
+<section class="status-screen">
       <div class="card">
         <h3>🛠 Skills & Tools</h3>
         <ul>
@@ -140,7 +168,34 @@
     </div>
   </div>
 
-  <script>
+<section class="section" id="github-projects">
+  <h3>📁 Other GitHub Projects</h3>
+  <div id="repo-list">Loading repositories...</div>
+</section>
+
+<script>
+  function navigateRPG(target) {
+    document.getElementById('dialogue-text').textContent = `Loading ${target}...`;
+    const el = document.getElementById(target);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  fetch('https://api.github.com/users/kairadiant/repos')
+    .then(res => res.json())
+    .then(data => {
+      const repoList = document.getElementById('repo-list');
+      if (!repoList) return;
+      repoList.innerHTML = '';
+      data.forEach(repo => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3><a href="${repo.html_url}" target="_blank" style="color: #ff6ec4;">${repo.name}</a></h3>
+          <p style="font-size: 0.7rem;">${repo.description || 'No description available.'}</p>
+        `;
+        repoList.appendChild(card);
+      });
+    });
     function toggleMode() {
       const body = document.body;
       const userTitle = document.getElementById("user-title");
