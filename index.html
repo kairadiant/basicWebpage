@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kayla Radiant | Galactic Developer</title>
+  <title>Kayla Washington | Technical Solutions Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -133,30 +133,36 @@
   </header>
 
   <section class="hero" data-aos="fade-in">
-    <h1>Hi, I'm Kayla Radiant</h1>
-    <p>Galactic Developer | Creative Technologist | Space-Centric Coder</p>
+    <h1>Hi, I'm Kayla Washington</h1>
+    <p>Technical Solutions Engineer | Creative Technologist | Developer Advocate</p>
   </section>
 
   <section id="about" class="section" data-aos="fade-up">
     <div class="about">
       <h2>About Me</h2>
-      <p>I'm a passionate developer building star-powered web experiences with interactive, futuristic designs and cosmic functionality.</p>
+      <p>I’m a passionate Technical Solutions Engineer at Datadog, with a background in software engineering and a track record of empowering developers through observability and infrastructure tooling. I bring hands-on experience in technical support, core server work, and creative full-stack projects — driven by curiosity, clarity, and technical empathy.</p>
     </div>
   </section>
 
   <section id="skills" class="section" data-aos="fade-up">
     <div class="skills">
       <h2>Skills</h2>
-      <div class="skill-bar" style="--fill-width: 90%"><div class="skill-bar-fill"></div></div>
-      <div class="skill-bar" style="--fill-width: 75%"><div class="skill-bar-fill"></div></div>
-      <div class="skill-bar" style="--fill-width: 60%"><div class="skill-bar-fill"></div></div>
+      <ul>
+        <li>Languages: Python, Java, C++, Golang, JavaScript, SQL, HTML, CSS</li>
+        <li>Technologies: AWS, Datadog, Docker, Tomcat, Apache</li>
+        <li>Tools: Jira, Confluence, Git, Splunk</li>
+      </ul>
     </div>
   </section>
 
   <section id="projects" class="section" data-aos="fade-up">
     <div class="projects">
-      <h2>GitHub Repositories</h2>
-      <div id="repo-list">Loading repositories...</div>
+      <h2>Featured Projects</h2>
+      <ul>
+        <li><strong><a href="https://github.com/kairadiant/AnimeRecommendationAI" target="_blank">Anime Recommendation AI Modeling Tool</a></strong> – Web scraping-based Python tool that recommends anime by title.</li>
+        <li><strong><a href="https://github.com/kairadiant/pomodoro-extension" target="_blank">Pomodoro Productivity Chrome Extension</a></strong> – A to-do list and Pomodoro timer to help with focused work.</li>
+        <li><strong><a href="https://github.com/kairadiant/basicWebpage" target="_blank">This Webpage</a></strong> – A dynamic personal site built with HTML, CSS, JS and AOS animation.</li>
+      </ul>
     </div>
   </section>
 
@@ -179,36 +185,12 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Kayla Radiant | <a href="https://github.com/kairadiant" style="color: #ff6ec4;">GitHub</a></p>
+    <p>&copy; 2025 Kayla Washington | <a href="https://github.com/kairadiant" style="color: #ff6ec4;">GitHub</a></p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
-    document.querySelectorAll('.skill-bar-fill').forEach(el => {
-      el.style.width = el.parentElement.style.getPropertyValue('--fill-width');
-    });
-
-    // GitHub Repo Fetcher
-    fetch('https://api.github.com/users/kairadiant/repos')
-      .then(response => response.json())
-      .then(data => {
-        const repoList = document.getElementById('repo-list');
-        repoList.innerHTML = '';
-        data.forEach(repo => {
-          const card = document.createElement('div');
-          card.className = 'repo-card';
-          card.innerHTML = `
-            <h3><a href="${repo.html_url}" target="_blank" style="color: #ff6ec4;">${repo.name}</a></h3>
-            <p>${repo.description || 'No description provided.'}</p>
-          `;
-          repoList.appendChild(card);
-        });
-      })
-      .catch(error => {
-        document.getElementById('repo-list').textContent = 'Error loading repositories.';
-        console.error('GitHub API error:', error);
-      });
   </script>
 </body>
 </html>
