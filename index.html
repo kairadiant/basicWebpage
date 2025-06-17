@@ -1,53 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="Assignment7.css">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <div class = "sidenav">
-        <div class="dropdown">
-            <button id="button" onclick="myFunc()">Home</button>
-            <script>
-                function myFunc(){
-                    open("Assignment7.html")
-                }
-            </script>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">Course
-              <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-              <a href="https://app.tophat.com/e/776977/lecture">TopHat</a>
-              <a href="https://drive.google.com/drive/u/0/folders/1Ak_kUW07RMNZgiEnxxbbLKjSg__lKE6j">Google Drive</a>
-              <a href="https://gaia.cs.umass.edu/kurose_ross/authors.php">Kurose and Ross</a>
-              <a href="http://w3schools.com">W3Schools</a>
-              <a href="https://www.geeksforgeeks.org/">GeeksforGeeks</a>
-          </div>
-      </div>
-        <div class="dropdown">
-          <button id="button2" onclick="myFunc2()">Browser</button>
-            <script>
-                function myFunc2(){
-                    open("Browser.html")
-                }
-            </script>
-
-      </div>
-        <div class="dropdown">
-          <button class="dropbtn">About
-              <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-              <a href="DeveloperDetails.html">Developer Details</a>
-              <a href="ContactMe.html">Contact Me</a>
-          </div>
-      </div>
-      <input type="text" placeholder="Search..">
-    </div>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kayla Radiant | Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+      background: #f4f4f4;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #00adb5;
+    }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?technology') center/cover;
+      color: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .section {
+      padding: 4rem 2rem;
+      background: #fff;
+      margin: 1rem 0;
+    }
+    .skills, .projects, .contact {
+      max-width: 900px;
+      margin: auto;
+    }
+    .skill-bar {
+      background: #e0e0e0;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .skill-bar-fill {
+      height: 20px;
+      background: #00adb5;
+      width: 0;
+      animation: fillBar 2s forwards;
+    }
+    @keyframes fillBar {
+      to { width: var(--fill-width); }
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: #00adb5;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #007a81;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background: #333;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-<h1>Welcome to my CSCI 355:Internet and Web Technologies Home Page!</h1>
+  <header>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" data-aos="fade-in">
+    <h1>Hi, I'm Kayla Radiant</h1>
+    <p>Web Developer | Problem Solver | Designer</p>
+  </section>
+
+  <section id="about" class="section" data-aos="fade-up">
+    <div class="about">
+      <h2>About Me</h2>
+      <p>I'm a passionate developer focused on creating clean, user-friendly web applications with a modern aesthetic.</p>
+    </div>
+  </section>
+
+  <section id="skills" class="section" data-aos="fade-up">
+    <div class="skills">
+      <h2>Skills</h2>
+      <div class="skill-bar" style="--fill-width: 90%"><div class="skill-bar-fill"></div></div>
+      <div class="skill-bar" style="--fill-width: 75%"><div class="skill-bar-fill"></div></div>
+      <div class="skill-bar" style="--fill-width: 60%"><div class="skill-bar-fill"></div></div>
+    </div>
+  </section>
+
+  <section id="projects" class="section" data-aos="fade-up">
+    <div class="projects">
+      <h2>Projects</h2>
+      <p>Coming soon... (Add portfolio items here)</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section" data-aos="fade-up">
+    <div class="contact">
+      <h2>Contact Me</h2>
+      <form action="https://formspree.io/f/yourformid" method="POST">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Kayla Radiant | <a href="https://github.com/kairadiant" style="color: #00adb5;">GitHub</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    document.querySelectorAll('.skill-bar-fill').forEach(el => {
+      el.style.width = el.parentElement.style.getPropertyValue('--fill-width');
+    });
+  </script>
 </body>
 </html>
