@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kayla Washington | Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Kayla Radiant | Galactic Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <a href="react-app/" target="_blank">Interactive Resume</a>
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Orbitron', sans-serif;
       margin: 0;
       padding: 0;
-      color: #333;
-      line-height: 1.6;
-      background: #f4f4f4;
+      background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
+      color: #eee;
+      overflow-x: hidden;
     }
     header {
-      background: #333;
+      background: rgba(15, 12, 41, 0.9);
       color: #fff;
       padding: 1rem 0;
       text-align: center;
@@ -27,56 +26,67 @@
       z-index: 1000;
     }
     nav a {
-      color: #fff;
+      color: #eee;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #00adb5;
+      color: #ff6ec4;
     }
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?technology') center/cover;
+      background: linear-gradient(rgba(15,12,41,0.7), rgba(15,12,41,0.7)), url('https://source.unsplash.com/1600x900/?galaxy,stars') center/cover;
       color: #fff;
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
       text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      color: #ff6ec4;
     }
     .section {
       padding: 4rem 2rem;
-      background: #fff;
       margin: 1rem 0;
+      animation: fadeIn 2s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .skills, .projects, .contact {
       max-width: 900px;
       margin: auto;
     }
     .skill-bar {
-      background: #e0e0e0;
+      background: #444;
       border-radius: 20px;
       overflow: hidden;
       margin-bottom: 1rem;
     }
     .skill-bar-fill {
       height: 20px;
-      background: #00adb5;
+      background: #ff6ec4;
       width: 0;
       animation: fillBar 2s forwards;
     }
     @keyframes fillBar {
       to { width: var(--fill-width); }
     }
-    .form-group {
-      margin-bottom: 1rem;
-    }
     .form-group input, .form-group textarea {
       width: 100%;
       padding: 0.8rem;
-      border: 1px solid #ccc;
+      border: none;
       border-radius: 5px;
+      background: #1f1f2e;
+      color: #fff;
     }
     button {
-      background: #00adb5;
+      background: #ff6ec4;
       color: white;
       padding: 0.8rem 1.5rem;
       border: none;
@@ -85,37 +95,53 @@
       transition: background 0.3s ease;
     }
     button:hover {
-      background: #007a81;
+      background: #c441a7;
     }
     footer {
       text-align: center;
       padding: 2rem 0;
-      background: #333;
+      background: #0f0c29;
       color: #fff;
+    }
+    .repo-card {
+      background: rgba(255, 255, 255, 0.05);
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-left: 4px solid #ff6ec4;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+    }
+    .repo-card:hover {
+      transform: scale(1.03);
+    }
+    .repo-card h3 {
+      margin: 0;
+    }
+    .repo-card p {
+      color: #ccc;
     }
   </style>
 </head>
 <body>
   <header>
     <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <a href="react-app/" target="_blank">Interactive Resume</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="react-app/" target="_blank">Interactive Resume</a>
     </nav>
-
   </header>
 
   <section class="hero" data-aos="fade-in">
     <h1>Hi, I'm Kayla Radiant</h1>
-    <p>Web Developer | Problem Solver | Designer</p>
+    <p>Galactic Developer | Creative Technologist | Space-Centric Coder</p>
   </section>
 
   <section id="about" class="section" data-aos="fade-up">
     <div class="about">
       <h2>About Me</h2>
-      <p>I'm a passionate developer focused on creating clean, user-friendly web applications with a modern aesthetic.</p>
+      <p>I'm a passionate developer building star-powered web experiences with interactive, futuristic designs and cosmic functionality.</p>
     </div>
   </section>
 
@@ -130,8 +156,8 @@
 
   <section id="projects" class="section" data-aos="fade-up">
     <div class="projects">
-      <h2>Projects</h2>
-      <p>Coming soon... (Add portfolio items here)</p>
+      <h2>GitHub Repositories</h2>
+      <div id="repo-list">Loading repositories...</div>
     </div>
   </section>
 
@@ -154,7 +180,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Kayla Radiant | <a href="https://github.com/kairadiant" style="color: #00adb5;">GitHub</a></p>
+    <p>&copy; 2025 Kayla Radiant | <a href="https://github.com/kairadiant" style="color: #ff6ec4;">GitHub</a></p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -163,6 +189,27 @@
     document.querySelectorAll('.skill-bar-fill').forEach(el => {
       el.style.width = el.parentElement.style.getPropertyValue('--fill-width');
     });
+
+    // GitHub Repo Fetcher
+    fetch('https://api.github.com/users/kairadiant/repos')
+      .then(response => response.json())
+      .then(data => {
+        const repoList = document.getElementById('repo-list');
+        repoList.innerHTML = '';
+        data.forEach(repo => {
+          const card = document.createElement('div');
+          card.className = 'repo-card';
+          card.innerHTML = `
+            <h3><a href="${repo.html_url}" target="_blank" style="color: #ff6ec4;">${repo.name}</a></h3>
+            <p>${repo.description || 'No description provided.'}</p>
+          `;
+          repoList.appendChild(card);
+        });
+      })
+      .catch(error => {
+        document.getElementById('repo-list').textContent = 'Error loading repositories.';
+        console.error('GitHub API error:', error);
+      });
   </script>
 </body>
 </html>
