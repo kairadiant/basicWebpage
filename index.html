@@ -100,9 +100,10 @@
     }
   </style>
 </head>
-<body class="rpg">
+<body class="rpg" onload="setInitialMode()">
   <button class="toggle-btn" onclick="toggleMode()">Toggle RPG Mode</button>
-  <div class="overlay">
+  <div class="overlay" id="rpg-view">
+    <!-- RPG View Content Starts Here -->
     <section class="section">
       <h1>Welcome, <span id="user-title">Trainer Kayla!</span></h1>
       <p id="intro-text">Your sidekick, the loyal Labrador, is ready to begin your journey.</p>
@@ -168,7 +169,46 @@
     </div>
   </div>
 
-<section class="section" id="github-projects">
+</div>
+<div class="overlay" id="pro-view" style="display:none;">
+  <section class="section">
+    <h1>Welcome, Kayla Washington</h1>
+    <p>Welcome to my professional portfolio.</p>
+  </section>
+
+  <section class="section">
+    <p>🧭 Browse through my skills, experience, and projects.</p>
+  </section>
+
+  <section class="status-screen">
+    <div class="card">
+      <h3>Skills & Tools</h3>
+      <ul>
+        <li>Python, Java, C++, Golang</li>
+        <li>JavaScript, SQL, HTML, CSS</li>
+        <li>Datadog, Docker, AWS</li>
+        <li>Git, Jira, Splunk</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Projects</h3>
+      <ul>
+        <li>Anime AI Recommender</li>
+        <li>Pomodoro Chrome Extension</li>
+        <li>Galactic Webpage</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Experience</h3>
+      <ul>
+        <li>Technical Solutions Engineer @Datadog</li>
+        <li>Former Apple Specialist</li>
+        <li>WB Games Co-op Dev</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="github-projects">
   <h3>📁 Other GitHub Projects</h3>
   <div id="repo-list">Loading repositories...</div>
 </section>
@@ -197,21 +237,20 @@
       });
     });
     function toggleMode() {
-      const body = document.body;
-      const userTitle = document.getElementById("user-title");
-      const introText = document.getElementById("intro-text");
-      const tutorialText = document.getElementById("tutorial");
-      const contactLine = document.getElementById("contact-line");
+  const body = document.body;
+  const rpg = document.getElementById("rpg-view");
+  const pro = document.getElementById("pro-view");
+  const isPro = body.classList.toggle("pro");
+  body.classList.toggle("rpg", !isPro);
+  rpg.style.display = isPro ? "none" : "block";
+  pro.style.display = isPro ? "block" : "none";
+}
 
-      body.classList.toggle("rpg");
-      body.classList.toggle("pro");
-
-      if (body.classList.contains("pro")) {
-        userTitle.textContent = "Kayla Washington";
-        introText.textContent = "Welcome to my professional portfolio.";
-        tutorialText.textContent = "🧭 Browse through my skills, experience, and projects.";
-        contactLine.innerHTML = `📬 Contact me at <a href="mailto:washingtonkayla717@gmail.com" style="color: #ff6ec4; text-decoration: underline;">washingtonkayla717@gmail.com</a> or visit <a href="https://www.linkedin.com/in/washingtonkayla/" target="_blank" style="color: #ff6ec4;">LinkedIn</a>.`;
-      } else {
+function setInitialMode() {
+  document.body.classList.add('rpg');
+  document.getElementById("rpg-view").style.display = "block";
+  document.getElementById("pro-view").style.display = "none";
+} else {
         userTitle.textContent = "Trainer Kayla!";
         introText.textContent = "Your sidekick, the loyal Labrador, is ready to begin your journey.";
         tutorialText.innerHTML = "🧭 <strong>Tutorial Start:</strong> In this adventure, you’ll unlock your past experiences, stats, quests, and companion traits. Ready to begin?";
