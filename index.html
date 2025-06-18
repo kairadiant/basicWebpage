@@ -3,36 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kayla Washington | Portfolio</title>
+  <title>Trainer Kayla | RPG Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: #0f0c29;
-      color: #eee;
-    }
-    .toggle-btn {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      padding: 0.5rem 1rem;
-      background: #ff6ec4;
-      color: #000;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      z-index: 1000;
-    }
-    .rpg-mode body {
       font-family: 'Press Start 2P', cursive;
       background: url('https://images.unsplash.com/photo-1589578527966-7a82c9ebba36') center/cover no-repeat fixed;
+      color: #eee;
     }
     .overlay {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.75);
       min-height: 100vh;
       padding: 2rem;
     }
@@ -41,14 +23,8 @@
       margin: 2rem auto;
       padding: 2rem;
       border-radius: 10px;
-    }
-    .rpg .section {
       background: #111;
       border: 2px dashed #ff6ec4;
-    }
-    .pro .section {
-      background: #1a1a2e;
-      border: 1px solid #333;
     }
     h1, h3 {
       color: #ff6ec4;
@@ -73,15 +49,15 @@
     .card ul {
       list-style: none;
       padding: 0;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
     .footer {
       text-align: center;
       padding: 2rem;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       color: #bbb;
     }
-  #dialogue-box {
+    #dialogue-box {
       background: #222;
       padding: 1.5rem;
       border: 4px double #ff6ec4;
@@ -100,31 +76,29 @@
     }
   </style>
 </head>
-<body class="rpg" onload="setInitialMode()">
-  <button class="toggle-btn" onclick="toggleMode()">Toggle RPG Mode</button>
-  <div class="overlay" id="rpg-view">
-    <!-- RPG View Content Starts Here -->
+<body>
+  <div class="overlay">
     <section class="section">
-      <h1>Welcome, <span id="user-title">Trainer Kayla!</span></h1>
-      <p id="intro-text">Your sidekick, the loyal Labrador, is ready to begin your journey.</p>
+      <h1>Welcome, Trainer Kayla!</h1>
+      <p>Your sidekick, the loyal Labrador, is ready to begin your journey.</p>
     </section>
 
     <section class="section">
-      <p id="tutorial">🧭 <strong>Tutorial Start:</strong> In this adventure, you’ll unlock your past experiences, stats, quests, and companion traits. Ready to begin?</p>
+      <p>🧭 <strong>Tutorial Start:</strong> In this adventure, you’ll unlock your past experiences, stats, quests, and companion traits. Ready to begin?</p>
     </section>
 
-<section class="section" id="dialogue-box">
-  <img src="https://dummyimage.com/80x80/fff/aaa.png&text=K" alt="Kayla avatar" style="float:left; margin-right:1rem;">
-  <p id="dialogue-text">Hi! I'm Kayla. Where would you like to go?</p>
-  <ul id="dialogue-options">
-    <li onclick="navigateRPG('skills')">View Abilities</li>
-    <li onclick="navigateRPG('quests')">View Quests</li>
-    <li onclick="navigateRPG('companion')">Meet Companion</li>
-    <li onclick="navigateRPG('contact-line')">Contact Me</li>
-  </ul>
-</section>
+    <section class="section" id="dialogue-box">
+      <img src="https://dummyimage.com/80x80/fff/aaa.png&text=K" alt="Kayla avatar" style="float:left; margin-right:1rem;">
+      <p id="dialogue-text">Hi! I'm Kayla. Where would you like to go?</p>
+      <ul id="dialogue-options">
+        <li onclick="navigateRPG('skills')">View Abilities</li>
+        <li onclick="navigateRPG('quests')">View Quests</li>
+        <li onclick="navigateRPG('companion')">Meet Companion</li>
+        <li onclick="navigateRPG('contact-line')">Contact Me</li>
+      </ul>
+    </section>
 
-<section class="status-screen">
+    <section class="status-screen" id="skills">
       <div class="card">
         <h3>🛠 Skills & Tools</h3>
         <ul>
@@ -134,7 +108,7 @@
           <li>Git, Jira, Splunk</li>
         </ul>
       </div>
-      <div class="card">
+      <div class="card" id="quests">
         <h3>🎯 Quests</h3>
         <ul>
           <li>Anime AI Recommender</li>
@@ -150,7 +124,7 @@
           <li>WB Games Co-op Dev</li>
         </ul>
       </div>
-      <div class="card">
+      <div class="card" id="companion">
         <h3>🐾 Companion</h3>
         <ul>
           <li>Name: TBD</li>
@@ -158,6 +132,11 @@
           <li>Skills: Snuggles, Debug Cheerleader, Walk Reminder</li>
         </ul>
       </div>
+    </section>
+
+    <section class="section" id="github-projects">
+      <h3>📁 Other GitHub Projects</h3>
+      <div id="repo-list">Loading repositories...</div>
     </section>
 
     <section class="section">
@@ -169,94 +148,29 @@
     </div>
   </div>
 
-</div>
-<div class="overlay" id="pro-view" style="display:none;">
-  <section class="section">
-    <h1>Welcome, Kayla Washington</h1>
-    <p>Welcome to my professional portfolio.</p>
-  </section>
-
-  <section class="section">
-    <p>🧭 Browse through my skills, experience, and projects.</p>
-  </section>
-
-  <section class="status-screen">
-    <div class="card">
-      <h3>Skills & Tools</h3>
-      <ul>
-        <li>Python, Java, C++, Golang</li>
-        <li>JavaScript, SQL, HTML, CSS</li>
-        <li>Datadog, Docker, AWS</li>
-        <li>Git, Jira, Splunk</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Projects</h3>
-      <ul>
-        <li>Anime AI Recommender</li>
-        <li>Pomodoro Chrome Extension</li>
-        <li>Galactic Webpage</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Experience</h3>
-      <ul>
-        <li>Technical Solutions Engineer @Datadog</li>
-        <li>Former Apple Specialist</li>
-        <li>WB Games Co-op Dev</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section" id="github-projects">
-  <h3>📁 Other GitHub Projects</h3>
-  <div id="repo-list">Loading repositories...</div>
-</section>
-
-<script>
-  function navigateRPG(target) {
-    document.getElementById('dialogue-text').textContent = `Loading ${target}...`;
-    const el = document.getElementById(target);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  fetch('https://api.github.com/users/kairadiant/repos')
-    .then(res => res.json())
-    .then(data => {
-      const repoList = document.getElementById('repo-list');
-      if (!repoList) return;
-      repoList.innerHTML = '';
-      data.forEach(repo => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <h3><a href="${repo.html_url}" target="_blank" style="color: #ff6ec4;">${repo.name}</a></h3>
-          <p style="font-size: 0.7rem;">${repo.description || 'No description available.'}</p>
-        `;
-        repoList.appendChild(card);
-      });
-    });
-    function toggleMode() {
-  const body = document.body;
-  const rpg = document.getElementById("rpg-view");
-  const pro = document.getElementById("pro-view");
-  const isPro = body.classList.toggle("pro");
-  body.classList.toggle("rpg", !isPro);
-  rpg.style.display = isPro ? "none" : "block";
-  pro.style.display = isPro ? "block" : "none";
-}
-
-function setInitialMode() {
-  document.body.classList.add('rpg');
-  document.getElementById("rpg-view").style.display = "block";
-  document.getElementById("pro-view").style.display = "none";
-} else {
-        userTitle.textContent = "Trainer Kayla!";
-        introText.textContent = "Your sidekick, the loyal Labrador, is ready to begin your journey.";
-        tutorialText.innerHTML = "🧭 <strong>Tutorial Start:</strong> In this adventure, you’ll unlock your past experiences, stats, quests, and companion traits. Ready to begin?";
-        contactLine.innerHTML = `📬 <strong>Want to recruit Kayla?</strong> <a href="mailto:washingtonkayla717@gmail.com" style="color: #ff6ec4; text-decoration: underline;">Send a message</a> or visit her <a href="https://www.linkedin.com/in/washingtonkayla/" target="_blank" style="color: #ff6ec4;">LinkedIn</a>.`;
-      }
+  <script>
+    function navigateRPG(target) {
+      document.getElementById('dialogue-text').textContent = `Loading ${target}...`;
+      const el = document.getElementById(target);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
+
+    fetch('https://api.github.com/users/kairadiant/repos')
+      .then(res => res.json())
+      .then(data => {
+        const repoList = document.getElementById('repo-list');
+        if (!repoList) return;
+        repoList.innerHTML = '';
+        data.forEach(repo => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <h3><a href="${repo.html_url}" target="_blank" style="color: #ff6ec4;">${repo.name}</a></h3>
+            <p style="font-size: 0.7rem;">${repo.description || 'No description available.'}</p>
+          `;
+          repoList.appendChild(card);
+        });
+      });
   </script>
 </body>
 </html>
