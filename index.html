@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trainer Kayla | RPG Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>Kayla Washington | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Press Start 2P', cursive;
-      background: url('https://images.unsplash.com/photo-1589578527966-7a82c9ebba36') center/cover no-repeat fixed;
+      font-family: 'Orbitron', sans-serif;
+      background: #0f0c29;
       color: #eee;
     }
     .overlay {
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.8);
       min-height: 100vh;
       padding: 2rem;
     }
@@ -23,8 +23,8 @@
       margin: 2rem auto;
       padding: 2rem;
       border-radius: 10px;
-      background: #111;
-      border: 2px dashed #ff6ec4;
+      background: #1a1a2e;
+      border: 1px solid #333;
     }
     h1, h3 {
       color: #ff6ec4;
@@ -40,7 +40,7 @@
       padding: 1rem;
       border-radius: 10px;
       width: 250px;
-      border: 2px solid #ff6ec4;
+      border: 1px solid #444;
       text-align: center;
     }
     .card h3 {
@@ -49,58 +49,30 @@
     .card ul {
       list-style: none;
       padding: 0;
-      font-size: 0.7rem;
+      font-size: 0.85rem;
     }
     .footer {
       text-align: center;
       padding: 2rem;
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       color: #bbb;
-    }
-    #dialogue-box {
-      background: #222;
-      padding: 1.5rem;
-      border: 4px double #ff6ec4;
-      font-size: 0.75rem;
-      margin: 2rem auto;
-      max-width: 800px;
-    }
-    #dialogue-options li {
-      list-style: none;
-      margin: 0.5rem 0;
-      cursor: pointer;
-      color: #ff6ec4;
-    }
-    #dialogue-options li:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <div class="overlay">
     <section class="section">
-      <h1>Welcome, Trainer Kayla!</h1>
-      <p>Your sidekick, the loyal Labrador, is ready to begin your journey.</p>
+      <h1>Welcome, Kayla Washington</h1>
+      <p>Welcome to my professional portfolio.</p>
     </section>
 
     <section class="section">
-      <p>🧭 <strong>Tutorial Start:</strong> In this adventure, you’ll unlock your past experiences, stats, quests, and companion traits. Ready to begin?</p>
+      <p>🧭 Browse through my skills, experience, and projects.</p>
     </section>
 
-    <section class="section" id="dialogue-box">
-      <img src="https://dummyimage.com/80x80/fff/aaa.png&text=K" alt="Kayla avatar" style="float:left; margin-right:1rem;">
-      <p id="dialogue-text">Hi! I'm Kayla. Where would you like to go?</p>
-      <ul id="dialogue-options">
-        <li onclick="navigateRPG('skills')">View Abilities</li>
-        <li onclick="navigateRPG('quests')">View Quests</li>
-        <li onclick="navigateRPG('companion')">Meet Companion</li>
-        <li onclick="navigateRPG('contact-line')">Contact Me</li>
-      </ul>
-    </section>
-
-    <section class="status-screen" id="skills">
+    <section class="status-screen">
       <div class="card">
-        <h3>🛠 Skills & Tools</h3>
+        <h3>Skills & Tools</h3>
         <ul>
           <li>Python, Java, C++, Golang</li>
           <li>JavaScript, SQL, HTML, CSS</li>
@@ -108,8 +80,8 @@
           <li>Git, Jira, Splunk</li>
         </ul>
       </div>
-      <div class="card" id="quests">
-        <h3>🎯 Quests</h3>
+      <div class="card">
+        <h3>Projects</h3>
         <ul>
           <li>Anime AI Recommender</li>
           <li>Pomodoro Chrome Extension</li>
@@ -117,19 +89,11 @@
         </ul>
       </div>
       <div class="card">
-        <h3>💬 Dialogue</h3>
+        <h3>Experience</h3>
         <ul>
           <li>Technical Solutions Engineer @Datadog</li>
           <li>Former Apple Specialist</li>
           <li>WB Games Co-op Dev</li>
-        </ul>
-      </div>
-      <div class="card" id="companion">
-        <h3>🐾 Companion</h3>
-        <ul>
-          <li>Name: TBD</li>
-          <li>Species: Labrador</li>
-          <li>Skills: Snuggles, Debug Cheerleader, Walk Reminder</li>
         </ul>
       </div>
     </section>
@@ -140,21 +104,15 @@
     </section>
 
     <section class="section">
-      <p id="contact-line">📬 Want to recruit Kayla? <a href="mailto:washingtonkayla717@gmail.com" style="color: #ff6ec4; text-decoration: underline;">Send a message</a> or visit her <a href="https://www.linkedin.com/in/washingtonkayla/" target="_blank" style="color: #ff6ec4;">LinkedIn</a>.</p>
+      <p>📬 Contact me at <a href="mailto:washingtonkayla717@gmail.com" style="color: #ff6ec4; text-decoration: underline;">washingtonkayla717@gmail.com</a> or visit <a href="https://www.linkedin.com/in/washingtonkayla/" target="_blank" style="color: #ff6ec4;">LinkedIn</a>.</p>
     </section>
 
     <div class="footer">
-      &copy; 2025 Kayla Washington — Powered by caffeine and late-night questing.
+      &copy; 2025 Kayla Washington — All rights reserved.
     </div>
   </div>
 
   <script>
-    function navigateRPG(target) {
-      document.getElementById('dialogue-text').textContent = `Loading ${target}...`;
-      const el = document.getElementById(target);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-
     fetch('https://api.github.com/users/kairadiant/repos')
       .then(res => res.json())
       .then(data => {
