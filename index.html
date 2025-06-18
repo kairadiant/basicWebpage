@@ -85,7 +85,33 @@
       color: #bbb;
       font-size: 0.8rem;
     }
-  </style>
+    .card {
+    background: #1b1b2f;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #444;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  #projects .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  #projects .card {
+    min-width: 300px;
+    scroll-snap-align: start;
+    margin-right: 1rem;
+    flex: 0 0 auto;
+  }
+</style>
 </head>
 <body>
   <header>
